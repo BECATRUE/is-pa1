@@ -14,7 +14,7 @@
 //   0: valid
 //  -1: invalid
 int validateInput(char *str_p, char *str_q, mpz_t *p, mpz_t *q) {
-    // 1. Validate whether two inputs are number
+    // 1. Validate whether two inputs are integers
     if (mpz_init_set_str(*p, str_p, 10) == -1) {
         printf("The first input is not an integer.\n");
         return -1;
