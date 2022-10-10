@@ -24,6 +24,25 @@ int validateInput(char *str_p, char *str_q, mpz_t *p, mpz_t *q) {
         printf("The second input is not an integer.\n");
         return -1;
     }
+
+    // 2. Validate whether two inputs are prime
+    int isPrime = mpz_probab_prime_p(*p, 50);
+    if (isPrime == 0) {
+        printf("The first input is not prime.\n");
+        return -1;
+    } else if (isPrime == 1) {
+        printf("The first input is probably prime.\n");
+        printf("Not sure, but proceed.\n");
+    }
+
+    isPrime = mpz_probab_prime_p(*q, 50);
+    if (isPrime == 0) {
+        printf("The second input is not prime.\n");
+        return -1;
+    } else if (isPrime == 1) {
+        printf("The second input is probably prime.\n");
+        printf("Not sure, but proceed.\n");
+    }
     
     return 0;
 }
