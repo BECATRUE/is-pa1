@@ -110,6 +110,21 @@ int chooseE(mpz_t e, mpz_t phi, mpz_t p, mpz_t q) {
 }
 
 
+// Function determining d
+//
+// Parameter:
+//  d  : result
+//  e  : e
+//  phi: phi
+//
+// Return:
+//   0: success to determine
+//  -1: fail to determine
+int determineD(mpz_t d, mpz_t e, mpz_t phi) {
+    return 0;
+}
+
+
 // Function generating key
 //
 // Parameter:
@@ -117,9 +132,9 @@ int chooseE(mpz_t e, mpz_t phi, mpz_t p, mpz_t q) {
 //  str_q: string of second number
 void generateKey(char *str_p, char *str_q) {
     mpz_t p, q;
-    mpz_t n, phi, e;
+    mpz_t n, phi, e, d;
 
-    mpz_inits(p, q, n, phi, e, NULL);
+    mpz_inits(p, q, n, phi, e, d, NULL);
 
     // 1. Validate whether two inputs are valid
     if (validateInput(str_p, str_q, p, q) == -1) { return; }
@@ -132,4 +147,7 @@ void generateKey(char *str_p, char *str_q) {
 
     // 4. Choose e s.t. 1 < e < phi & gcd(e, phi)) = 1
     if (chooseE(e, phi, p, q) == -1) { return; }
+
+    // 5. Determine d = e^(-1) mod phi
+    if (determineD(d, e, phi) == -1) { return; }
 }
