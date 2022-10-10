@@ -79,6 +79,18 @@ void computePhi(mpz_t phi, mpz_t p, mpz_t q) {
 }
 
 
+// Function choosing e
+//
+// Parameter:
+//  e  : result
+//  phi: phi
+//  p  : first number
+//  q  : second number
+void chooseE(mpz_t e, mpz_t phi, mpz_t p, mpz_t q) {
+
+}
+
+
 // Function generating key
 //
 // Parameter:
@@ -86,9 +98,9 @@ void computePhi(mpz_t phi, mpz_t p, mpz_t q) {
 //  str_q: string of second number
 void generateKey(char *str_p, char *str_q) {
     mpz_t p, q;
-    mpz_t n, phi;
+    mpz_t n, phi, e;
 
-    mpz_inits(p, q, n, phi, NULL);
+    mpz_inits(p, q, n, phi, e, NULL);
 
     // 1. Validate whether two inputs are valid
     if (validateInput(str_p, str_q, p, q) == -1) { return; }
@@ -98,4 +110,7 @@ void generateKey(char *str_p, char *str_q) {
     
     // 3. Compute phi = (p - 1)(q - 1)
     computePhi(phi, p, q);
+
+    // 4. Choose e s.t. 1 < e < phi & gcd(e, phi)) = 1
+    chooseE(e, phi, p, q);
 }
