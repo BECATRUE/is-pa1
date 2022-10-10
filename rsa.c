@@ -2,6 +2,13 @@
 #include <string.h>
 
 int main(int argc, char *argv[]) {
+    // If no argument
+    if (argc == 1) {
+        printf("An argument is essential.\n");
+
+        return 0;
+    }
+
     char *mode = argv[1];
 
     // Generate key
@@ -21,7 +28,7 @@ int main(int argc, char *argv[]) {
 
     // Else
     else {
-        printf("Invalid argument\n");
+        printf("The first argument must be -keygen/-encrypt/-decrypt.\n");
     }
 
     return 0;
