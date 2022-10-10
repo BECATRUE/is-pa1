@@ -7,7 +7,7 @@ OBJS   = $(SRCS:.c=.o)
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) -o $@ $^
+	$(CC) -o $@ $^ -lgmp
 
 clean:
 	$(RM) $(TARGET) $(OBJS)
