@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <gmp.h>
 
 
@@ -138,7 +140,19 @@ int determineD(mpz_t d, mpz_t e, mpz_t phi) {
 //  n
 //  d
 void saveKeys(mpz_t e, mpz_t n, mpz_t d) {
+    FILE *public_key_file, *private_key_file;
 
+    mkdir("./key", S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+
+    // Save public key
+    public_key_file = fopen("./key/public_key", "wt");
+    gmp_fprintf(public_key_file, "e: %Zd\nn: %Zd", e, n);
+    fclose(public_key_file);
+
+    // Save private key
+    private_key_file = fopen("./key/private_key", "wt");
+    gmp_fprintf(private_key_file, "d: %Zd", d);
+    fclose(private_key_file);
 }
 
 
