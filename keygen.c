@@ -55,7 +55,11 @@ int validateInput(char *str_p, char *str_q, mpz_t *p, mpz_t *q) {
 //  str_q: string of second number
 void generateKey(char *str_p, char *str_q) {
     mpz_t p, q;
+    mpz_t n;
 
     // 1. Validate whether two inputs are valid
     if (validateInput(str_p, str_q, &p, &q) == -1) { return; }
+
+    // 2. Compute n = pq
+    mpz_mul(n, p, q);
 }
