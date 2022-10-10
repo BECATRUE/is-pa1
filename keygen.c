@@ -121,6 +121,12 @@ int chooseE(mpz_t e, mpz_t phi, mpz_t p, mpz_t q) {
 //   0: success to determine
 //  -1: fail to determine
 int determineD(mpz_t d, mpz_t e, mpz_t phi) {
+    // Validate whether the inverse exists
+    if (mpz_invert(d, e, phi) == 0) {
+        printf("Failed to determine appropriate d.\n");
+        return -1;
+    }
+
     return 0;
 }
 
