@@ -92,8 +92,21 @@ void computePhi(mpz_t phi, mpz_t p, mpz_t q) {
 //  phi: phi
 //  p  : first number
 //  q  : second number
-void chooseE(mpz_t e, mpz_t phi, mpz_t p, mpz_t q) {
+//
+// Return:
+//   0: success to choose
+//  -1: fail to choose
+int chooseE(mpz_t e, mpz_t phi, mpz_t p, mpz_t q) {
+    // Set e to the next prime greater than max(p, q)
+    mpz_nextprime(e, (mpz_cmp(p, q) > 0 ? p : q));
 
+    // Validate whether e is smaller than phi
+    if (mpz_cmp(e, phi) >= 0) {
+        printf("Failed to choose appropriate e.\n");
+        return -1;
+    }
+
+    return 0;
 }
 
 
@@ -118,5 +131,5 @@ void generateKey(char *str_p, char *str_q) {
     computePhi(phi, p, q);
 
     // 4. Choose e s.t. 1 < e < phi & gcd(e, phi)) = 1
-    chooseE(e, phi, p, q);
+    if (chooseE(e, phi, p, q) == -1) { return; }
 }
