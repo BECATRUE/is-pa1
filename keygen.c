@@ -89,7 +89,7 @@ void computePhi(mpz_t phi, mpz_t p, mpz_t q) {
 //
 // Parameter:
 //  e  : result
-//  phi: phi
+//  phi
 //  p  : first number
 //  q  : second number
 //
@@ -114,8 +114,8 @@ int chooseE(mpz_t e, mpz_t phi, mpz_t p, mpz_t q) {
 //
 // Parameter:
 //  d  : result
-//  e  : e
-//  phi: phi
+//  e  
+//  phi
 //
 // Return:
 //   0: success to determine
@@ -128,6 +128,17 @@ int determineD(mpz_t d, mpz_t e, mpz_t phi) {
     }
 
     return 0;
+}
+
+
+// Function saving keys
+//
+// Parameter:
+//  e
+//  n
+//  d
+void saveKeys(mpz_t e, mpz_t n, mpz_t d) {
+
 }
 
 
@@ -156,4 +167,7 @@ void generateKey(char *str_p, char *str_q) {
 
     // 5. Determine d = e^(-1) mod phi
     if (determineD(d, e, phi) == -1) { return; }
+
+    // 6. Save public/private key
+    saveKeys(e, n, d);
 }
