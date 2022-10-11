@@ -1,8 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 
+
 extern void generateKey(char *str_p, char *str_q);
 extern void encrypt();
+extern void decrypt();
+
 
 int main(int argc, char *argv[]) {
     // If no argument
@@ -38,7 +41,13 @@ int main(int argc, char *argv[]) {
 
     // Decrypt
     else if (strcmp(mode, "-decrypt") == 0) {
-        printf("Decrypt\n");
+        if (argc != 2) {
+            printf("After -decrypt, there must be no argument.\n");
+
+            return 0;
+        }
+        
+        decrypt();
     }
 
     // Else
