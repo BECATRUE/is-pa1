@@ -35,8 +35,14 @@ int readPlainText(mpz_t pt) {
     // Read plaintext
     fgets(str, 10, plaintext_file);
 
-    if(mpz_init_set_str(pt, str, 10) == -1) {
+    if (mpz_init_set_str(pt, str, 10) == -1) {
         printf("The plaintext is invalid.\n");
+        return -1;
+    }
+
+    if (mpz_sgn(pt) <= 0) {
+        printf("The plaintext must be positive.\n");
+        return -1;
     }
 
     // Close plaintext file
