@@ -15,7 +15,7 @@ extern int readPlainText(mpz_t pt);
 //  e
 //  n
 void computeCiphertext(mpz_t pt, mpz_t ct, mpz_t e, mpz_t n) {
-
+    mpz_powm(ct, pt, e, n);
 }
 
 
@@ -35,6 +35,7 @@ void encrypt() {
 
     // 3. Compute ciphertext
     computeCiphertext(pt, ct, e, n);
+    gmp_printf("%Zd\n", ct);
 
     mpz_clears(e, n, pt, NULL);
 }
