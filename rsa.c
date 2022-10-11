@@ -2,6 +2,7 @@
 #include <string.h>
 
 extern void generateKey(char *str_p, char *str_q);
+extern void encrypt();
 
 int main(int argc, char *argv[]) {
     // If no argument
@@ -26,7 +27,13 @@ int main(int argc, char *argv[]) {
 
     // Encrypt
     else if (strcmp(mode, "-encrypt") == 0) {
-        printf("Encrypt\n");
+        if (argc != 2) {
+            printf("After -encrypt, there must be no argument.\n");
+
+            return 0;
+        }
+        
+        encrypt();
     }
 
     // Decrypt
