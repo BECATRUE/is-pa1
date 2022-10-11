@@ -1,5 +1,5 @@
 TARGET = rsa
-SRCS   = rsa.c keygen.c encrypt.c decrypt.c
+SRCS   = rsa.c keygen.c keyread.c encrypt.c decrypt.c
 CC     = gcc
 CFLAGS = -g -Wall
 OBJS   = $(SRCS:.c=.o)
