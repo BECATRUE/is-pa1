@@ -21,6 +21,26 @@ void computePlaintext(mpz_t pt, mpz_t ct, mpz_t d, mpz_t n) {
 }
 
 
+// Function comparing with original plaintext
+//
+// Parameter:
+//  ct    : ciphertext
+//  pt    : plaintext
+//  org_pt: original plaintext
+void compareWithOriginalPlaintext(mpz_t ct, mpz_t pt, mpz_t org_pt) {
+    printf("Ciphertext\n");
+    gmp_printf("   : %Zd\n\n", ct);
+
+    printf("Decrypted plaintext\n");
+    gmp_printf("   : %Zd\n\n", pt);
+
+    printf("Original plaintext (%s)\n", mpz_cmp(pt, org_pt) == 0 ? "identical" : "non-identical");
+    gmp_printf("   : %Zd\n\n", org_pt);
+
+    printf("The decrypted plaintext is stored in ./text/plaintext.\n\n");
+}
+
+
 // Decrypting function
 void decrypt() {
     mpz_t e, n, d;
@@ -42,6 +62,9 @@ void decrypt() {
 
     // 5. Read original plaintext
     if (readPlainText(org_pt) == -1) { return; }
+
+    // 6. Compare with original plaintext
+    compareWithOriginalPlaintext(ct, pt, org_pt);
 
     mpz_clears(e, n, d, ct, pt, org_pt, NULL);
 }
