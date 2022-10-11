@@ -3,7 +3,7 @@
 #include <gmp.h>
 
 
-// Function reading key
+// Function reading public key
 //
 // Parameter:
 //  e
@@ -12,7 +12,7 @@
 // Return:
 //   0: success to read
 //  -1: fail to read
-int readKey(mpz_t e, mpz_t n) {
+int readPublicKey(mpz_t e, mpz_t n) {
     char str[1024], prefix[4], key[1024];
     FILE *public_key_file;
 
@@ -78,5 +78,5 @@ void encrypt() {
     mpz_t e, n;
 
     // 1. Read public key
-    if (readKey(e, n) == -1) { return; }
+    if (readPublicKey(e, n) == -1) { return; }
 }
