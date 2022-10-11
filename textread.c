@@ -84,12 +84,12 @@ int readCipherText(mpz_t ct) {
     // Read ciphertext
     fgets(str, 10, ciphertext_file);
 
-    if (mpz_init_set_str(pt, str, 10) == -1) {
+    if (mpz_init_set_str(ct, str, 10) == -1) {
         printf("The ciphertext is invalid.\n");
         return -1;
     }
 
-    if (mpz_sgn(pt) <= 0) {
+    if (mpz_sgn(ct) <= 0) {
         printf("The ciphertext must be positive.\n");
         return -1;
     }
