@@ -9,6 +9,18 @@ extern int readPlainText(mpz_t pt);
 extern int readCipherText(mpz_t ct);
 
 
+// Function computing plaintext
+//
+// Parameter:
+//  pt: plaintext
+//  ct: ciphertext
+//  d
+//  n
+void computePlaintext(mpz_t pt, mpz_t ct, mpz_t d, mpz_t n) {
+    mpz_powm(pt, ct, d, n);
+}
+
+
 // Decrypting function
 void decrypt() {
     mpz_t e, n, d;
@@ -26,6 +38,7 @@ void decrypt() {
     if (readCipherText(ct) == -1) { return; }
 
     // 4. Compute plaintext
+    computePlaintext(pt, ct, d, n);
 
     // 5. Read original plaintext
     if (readPlainText(org_pt) == -1) { return; }

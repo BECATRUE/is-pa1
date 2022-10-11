@@ -33,7 +33,7 @@ int readPlainText(mpz_t pt) {
     fseek(plaintext_file, 0, SEEK_SET);
 
     // Read plaintext
-    fgets(str, 10, plaintext_file);
+    fgets(str, 1024, plaintext_file);
 
     if (mpz_init_set_str(pt, str, 10) == -1) {
         printf("The plaintext is invalid.\n");
@@ -82,7 +82,7 @@ int readCipherText(mpz_t ct) {
     fseek(ciphertext_file, 0, SEEK_SET);
 
     // Read ciphertext
-    fgets(str, 10, ciphertext_file);
+    fgets(str, 1024, ciphertext_file);
 
     if (mpz_init_set_str(ct, str, 10) == -1) {
         printf("The ciphertext is invalid.\n");
