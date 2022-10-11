@@ -1,0 +1,4 @@
+// Decrypting function
+void decrypt() {
+    
+}
