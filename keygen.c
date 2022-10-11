@@ -153,6 +153,15 @@ void saveKeys(mpz_t e, mpz_t n, mpz_t d) {
     private_key_file = fopen("./key/private_key", "wt");
     gmp_fprintf(private_key_file, "d: %Zd", d);
     fclose(private_key_file);
+
+    // Print descriptions
+    printf("Public key\n");
+    gmp_printf("   e: %Zd\n   n: %Zd\n\n", e, n);
+
+    printf("Private key\n");
+    gmp_printf("   d: %Zd\n\n", d);
+
+    printf("The generated keys are stored in ./key.\n\n");
 }
 
 
