@@ -193,4 +193,6 @@ void generateKey(char *str_p, char *str_q) {
 
     // 6. Save public/private key
     saveKeys(e, n, d);
+
+    mpz_clears(p, q, n, phi, e, d, NULL);
 }
