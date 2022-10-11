@@ -3,3 +3,6 @@ rsa
 
 # Object files
 *.o
+
+# Key files
+key/
