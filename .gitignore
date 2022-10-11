@@ -6,3 +6,6 @@ rsa
 
 # Key files
 key/
+
+# Text files
+text/
