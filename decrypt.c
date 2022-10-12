@@ -28,7 +28,7 @@ void computePlaintext(mpz_t pt, mpz_t ct, mpz_t d, mpz_t n) {
 //  pt    : plaintext
 //  org_pt: original plaintext
 void compareWithOriginalPlaintext(mpz_t ct, mpz_t pt, mpz_t org_pt) {
-    printf("Ciphertext\n");
+    printf("\nCiphertext\n");
     gmp_printf("   : %Zd\n\n", ct);
 
     printf("Decrypted plaintext\n");

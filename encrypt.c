@@ -33,7 +33,7 @@ void saveCiphertext(mpz_t pt, mpz_t ct) {
     fclose(ciphertext_file);
 
     // Print descriptions
-    printf("Plaintext\n");
+    printf("\nPlaintext\n");
     gmp_printf("   : %Zd\n\n", pt);
 
     printf("Encrypted ciphertext\n");

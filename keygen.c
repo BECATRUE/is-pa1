@@ -39,7 +39,7 @@ int validateInput(char *str_p, char *str_q, mpz_t p, mpz_t q) {
         printf("The first input is not prime.\n");
         return -1;
     } else if (isPrime == 1) {
-        printf("The first input is probably prime.\n");
+        printf("\nThe first input is probably prime.\n");
         printf("Not sure, but proceed.\n");
     }
 
@@ -48,7 +48,7 @@ int validateInput(char *str_p, char *str_q, mpz_t p, mpz_t q) {
         printf("The second input is not prime.\n");
         return -1;
     } else if (isPrime == 1) {
-        printf("The second input is probably prime.\n");
+        printf("\nThe second input is probably prime.\n");
         printf("Not sure, but proceed.\n");
     }
     
@@ -155,7 +155,7 @@ void saveKeys(mpz_t e, mpz_t n, mpz_t d) {
     fclose(private_key_file);
 
     // Print descriptions
-    printf("Public key\n");
+    printf("\nPublic key\n");
     gmp_printf("   e: %Zd\n   n: %Zd\n\n", e, n);
 
     printf("Private key\n");
