@@ -4,6 +4,17 @@
 
 This can be download from Github at https://github.com/BECATRUE/is-pa1/.
 
+### Student info
+- ID: 2020-10015
+- Name: Jaehun You (유재훈)
+- Email: jaehun0121@snu.ac.kr
+- Phone: 010-3894-9521
+
+## 0. Compile
+```
+$ make
+```
+
 ## 1. Generate keys
 ```
 $ ./rsa -keygen [p] [q]
